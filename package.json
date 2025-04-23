@@ -3,16 +3,24 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
+    "argon2": "^0.41.1",
     "express": "^5.1.0",
     "helmet": "^8.1.0"
   },
+  "keywords": [
+    "cyber-security",
+    "web-app",
+    "node",
+    "express",
+    "helmet"
+  ],
+  "author": "Mark T.",
+  "license": "ISC",
+  "description": "Secure Web Application",
   "devDependencies": {
     "nodemon": "^3.1.9"
   }
