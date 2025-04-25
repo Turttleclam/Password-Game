@@ -10,8 +10,9 @@ const sql = postgres({
 const argon2 = require('argon2');
 require('dotenv').config();
 
-app.get('/public', (req, res) => {
-    res.send('/index.html');
+// app.use(express.static('public'));
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname + 'public' + 'index.html'));
 });
 
 const port = 3000;
