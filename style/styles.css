@@ -51,7 +51,6 @@ label {
 
 .input label {
     position: absolute;
-    transform: translate(-50%);
     top: 50%;
     left: 15px;
     font-size: 16px;
