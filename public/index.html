@@ -7,21 +7,32 @@
     <link rel="stylesheet" href="../style/styles.css">
 </head>
 <body>
-    <header>
+    <header class="container">
         <h1>Password Security Game</h1>
     </header>
-    <main>
+    <main class="container">
         <fieldset class="main" id="main">
-            <label>Username</label>
-            <input type="text" id="username" name="username"></input>
-            <label>Password</label>
-            <input type="password" id="pwd" name="pwd"></input>
-            <input type="submit" value="Submit">
-            <input type="reset" value="reset">
+            <div class="userInput">
+                <label>Username</label>
+                <input type="text" id="username" name="username"></input>
+                <label>Password</label>
+                <input type="password" id="pwd" name="pwd"></input>
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </div>
         </fieldset>
+        <label>Favorite Comics</label>
+        <table>
+            <tr>
+                <th>Username</th>
+                <th>Fav Comic</th>
+                <th>Fav Character</th>
+            </tr>
+        </table>
     </main>
     <footer>
-
+        <p>&copy; 2025 Password Security Game. All rights reserved.</p>
+        <p>This application is for educational purposes only.</p>
     </footer>
 </body>
 </html>
