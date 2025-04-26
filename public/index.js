@@ -26,7 +26,11 @@ searchBtn.addEventListener("click", () => {
         displayData(array);
     })
     .catch((err) => {
-        info.innerHTML = `<p>Error returning search results</p>`;
+        info.innerHTML = `
+        <tr>
+        <td>Error returning search results</td>
+        </tr>
+        `;
     });
 });
 
@@ -38,7 +42,11 @@ document.addEventListener("DOMContentLoaded", () => {
         displayData(array.slice(start_index, end_index));
     })
     .catch((err) => {
-        info.innerHTML = `<p>Error loading table.</p>`;
+        info.innerHTML = `
+        <tr>
+        <td>Error loading table.</td>
+        </tr>
+        `;
     });
 
 });
