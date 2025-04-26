@@ -57,8 +57,13 @@ fieldset {
     padding: 1.5rem 1.5rem 1.5rem 0rem;
 }
 
-table, th, td {
+table, td {
     border: 1px solid black;
+}
+
+.head {
+    border: 3px solid black;
+    outline-offset: -2px;
 }
 
 .dataTable {

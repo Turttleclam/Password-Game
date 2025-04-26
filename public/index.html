@@ -15,12 +15,17 @@
             <div class="userInput">
                 <div class="input">
                     <label for="username">Username
-                    <input type="text" id="username" name="username"></input>
+                        <input type="text" id="username" name="username"></input>
                     </label>
                 </div>
                 <div class="input">
                     <label for="pwd">Password
-                    <input type="password" id="pwd" name="pwd"></input>
+                        <input type="password" id="pwd" name="pwd"></input>
+                    </label>
+                </div>
+                <div class="input">
+                    <label for="search">Search
+                        <input type="search" id="search" name="search"></input>
                     </label>
                 </div>
                 <input type="submit" value="Submit">
@@ -32,9 +37,9 @@
             <table id="dataTable">
                 <thead>
                     <tr>
-                        <th>Username</th>
-                        <th>Fav Comic</th>
-                        <th>Fav Character</th>
+                        <th class="head">Username</th>
+                        <th class="head">Fav Comic</th>
+                        <th class="head">Fav Character</th>
                     </tr>
                 </thead>
                 <tbody id="data">
@@ -44,10 +49,10 @@
             </label>
         </div>
     </main>
-    <footer>
-        <p>&copy; 2025 Password Security Game. All rights reserved.</p>
-        <p>This application is for educational purposes only.</p>
-    </footer>
 <script src="/index.js"></script>
 </body>
+<footer>
+    <p>&copy; 2025 Password Security Game. All rights reserved.</p>
+    <p>This application is for educational purposes only.</p>
+</footer>
 </html>
