@@ -2,6 +2,7 @@
 const info = document.getElementById('data');
 const userSearch = document.getElementById('search');
 const searchBtn = document.getElementById('search-btn');
+const searchDisplay = document.getElementById('searchDisplay');
 let start_index = 0;
 let end_index = 9;
 let array = [];
@@ -18,15 +19,27 @@ const displayData = (data) => {
     });
 };
 
+const displaySearch = (data) => {
+    data.forEach(({ username, publisher, character }) => {
+        const row = document.createElement('tr')
+        row.innerHTML = `
+            <td>${username}</td>
+            <td>${publisher}</td>
+            <td>${character}</td>
+        `;
+        searchDisplay.appendChild(row);
+    });
+};
+
 searchBtn.addEventListener("click", () => {
     fetch(`http://localhost:3000/search/${userSearch.value}`)
     .then((res) => res.json())
     .then((data) => {
         array = data;
-        displayData(array);
+        displaySearch(array);
     })
     .catch((err) => {
-        info.innerHTML = `
+        searchDisplay.innerHTML = `
         <tr>
         <td>Error returning search results</td>
         </tr>
@@ -48,6 +61,5 @@ document.addEventListener("DOMContentLoaded", () => {
         </tr>
         `;
     });
-
 });
 
