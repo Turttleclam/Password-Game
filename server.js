@@ -17,7 +17,8 @@ const argon2 = require("argon2");
 require("dotenv").config();
 
 app.use('/style', express.static(path.join(__dirname + `/style`)));
-app.use('/', express.static(path.join('index.js')));
+
+app.get('/public', express.static(path.join(__dirname + '/public')));
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "/public/index.html"))
