@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 const app = express();
 
-const path = require('path');
+
 const helmet = require('helmet');
 const postgres = require('postgres');
 
