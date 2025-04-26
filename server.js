@@ -33,6 +33,17 @@ app.get('/data', async (req, res) => {
   }
 });
 
+app.get('/search/:name', async (req, res) => {
+  const { name } = req.params;
+  try {
+    const result = await sql`SELECT * FROM users INNER JOIN fav_comic USING (user_id) WHERE username ILIKE ${name}`;
+    res.json(result);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Server Error');
+  }
+});
+
 const port = 3000;
 app.listen(port, () => {
   console.log(`Your app is listening on port ${port}`);
