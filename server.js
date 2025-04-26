@@ -16,13 +16,12 @@ const sql = postgres({
 const argon2 = require("argon2");
 require("dotenv").config();
 
-// app.use(express.static('public'));
+app.use('/style', express.static(path.join(__dirname + `/style`)));
+app.use('/', express.static(path.join('index.js')));
+
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "/public/index.html"))
 });
-
-app.use('/style', express.static(path.join(__dirname + `/style`)));
-
 
 app.get('/data', async (req, res) => {
   try {
