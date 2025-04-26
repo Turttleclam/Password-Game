@@ -2,7 +2,6 @@ const express = require("express");
 const path = require("path");
 const app = express();
 
-
 const helmet = require('helmet');
 const postgres = require('postgres');
 
@@ -18,7 +17,7 @@ require("dotenv").config();
 
 app.use('/style', express.static(path.join(__dirname + `/style`)));
 
-app.get('/public', express.static(path.join(__dirname + '/public')));
+app.use(express.static(path.join(__dirname + '/public')));
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "/public/index.html"))

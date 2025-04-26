@@ -14,20 +14,22 @@
         <fieldset class="main" id="main">
             <div class="userInput">
                 <div class="input">
-                    <label>Username</label>
+                    <label for="username">Username
                     <input type="text" id="username" name="username"></input>
+                    </label>
                 </div>
                 <div class="input">
-                    <label>Password</label>
+                    <label for="pwd">Password
                     <input type="password" id="pwd" name="pwd"></input>
+                    </label>
                 </div>
                 <input type="submit" value="Submit">
                 <input type="reset" value="Reset">
             </div>
         </fieldset>
         <div class="dataTable">
-            <label for="table">Favorite Comics</label>
-            <table>
+            <label for="dataTable">Favorite Comics
+            <table id="dataTable">
                 <thead>
                     <tr>
                         <th>Username</th>
@@ -39,12 +41,13 @@
 
                 </tbody>
             </table>
+            </label>
         </div>
     </main>
     <footer>
         <p>&copy; 2025 Password Security Game. All rights reserved.</p>
         <p>This application is for educational purposes only.</p>
     </footer>
-<script src="index.js"></script>
+<script src="/index.js"></script>
 </body>
 </html>
