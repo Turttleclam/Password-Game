@@ -6,6 +6,8 @@ const path = require('path');
 const helmet = require('helmet');
 const postgres = require('postgres');
 
+app.use(helmet());
+
 const sql = postgres({
   username: "postgres",
   password: "password",
