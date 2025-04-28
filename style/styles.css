@@ -68,10 +68,15 @@ div {
 
 #char, #fav_comic {
     display: none;
+    margin: 0.25rem;
 }
 
 .button {
     width: 30%;
+}
+
+#create, #addNewUser {
+    margin: 0.25rem;
 }
 
 h1 {

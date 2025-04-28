@@ -4,6 +4,8 @@ const userSearch = document.getElementById('search');
 const searchBtn = document.getElementById('search-btn');
 const searchDisplay = document.getElementById('searchDisplay');
 const submitBtn = document.getElementById('submit');
+const p_label = document.getElementById('pwd-label');
+const u_label = document.getElementById('username-label');
 const username = document.getElementById('username');
 const createBtn = document.getElementById('create');
 const addNewUser = document.getElementById('addNewUser');
@@ -56,6 +58,22 @@ const displaySearch = (data) => {
     });
 };
 
+const resetPage = () => {
+    updateMsg.innerHTML = ""; // Clear the updateMsg field
+    searchDisplay.innerHTML = ""; // Clears search Display
+    userSearch.value = "";
+    fav_com.value = "";
+    char.value = "";
+    username.value = "";
+    pwd.value = "";
+    createBtn.style.display = "initial"; 
+    addNewUser.style.display = "none";
+    fav_com.style.display = "none";
+    char.style.display = "none";
+    p_label.innerHTML = "Password";
+    u_label.innerHTML = "Username";
+};
+
 searchBtn.addEventListener("click", () => {
     fetch(`http://localhost:3000/search/${userSearch.value}`)
     .then((res) => res.json())
@@ -90,7 +108,7 @@ submitBtn.addEventListener("click", () => {
     })
     .then((res) => res.json())
     .then(() => {
-        updateMsg.innerHTML += `
+        updateMsg.innerHTML = `
             <p>
             ${username.value}'s account has been updated!
             </p>
@@ -111,6 +129,8 @@ createBtn.addEventListener("click", () => {
     addNewUser.style.display = "initial";
     fav_com.style.display = "initial";
     char.style.display = "initial";
+    p_label.innerHTML = `Add Password`;
+    u_label.innerHTML = `Add New Username`;
 });
 
 addNewUser.addEventListener("click", () => {
@@ -145,14 +165,7 @@ addNewUser.addEventListener("click", () => {
 });
 
 reset.addEventListener("click", () => {
-    updateMsg.innerHTML = ""; // Clear the updateMsg field
-    searchDisplay.innerHTML = ""; // Clears search Display
-    userSearch.value = "";
-    fav_com.value = "";
-    username.value = "";
-    pwd.value = "";
-    createBtn.style.display = "initial"; 
-    addNewUser.style.display = "none";
+    resetPage();
 });
 
 document.addEventListener("DOMContentLoaded", () => {
