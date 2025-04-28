@@ -8,7 +8,7 @@ const username = document.getElementById('username');
 const pwd = document.getElementById('pwd');
 const updateMsg = document.getElementById('updateMsg');
 let start_index = 0;
-let end_index = 9;
+let end_index = 10;
 let array = [];
 
 const displayData = (data) => {

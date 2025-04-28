@@ -27,7 +27,7 @@ app.get("/", (req, res) => {
 
 app.get('/data', async (req, res) => {
   try {
-    const result = await sql`SELECT * FROM users INNER JOIN fav_comic USING (user_id)`;
+    const result = await sql`SELECT * FROM users INNER JOIN fav_comic USING (user_id) ORDER BY user_id`;
     res.json(result);
   } catch (err) {
     console.error(err);
