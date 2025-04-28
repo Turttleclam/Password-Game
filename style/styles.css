@@ -13,11 +13,13 @@ body {
     color: white;
     width: 100%;
     min-height: 100vh;
+    padding: 0rem;
 }
 
 header {
     background-color: black;
     width: 100%;
+    text-align: center;
 }
 
 main {

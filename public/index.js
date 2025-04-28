@@ -8,8 +8,8 @@ const username = document.getElementById('username');
 const pwd = document.getElementById('pwd');
 const updateMsg = document.getElementById('updateMsg');
 let start_index = 0;
-let end_index = 10;
 let array = [];
+
 
 const displayData = (data) => {
     data.forEach(({ username, publisher, character }, index) => {
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((res) => res.json())
     .then((data) => {
         array = data;
-        displayData(array.slice(start_index, end_index));
+        displayData(array.slice(start_index, array.length));
     })
     .catch((err) => {
         info.innerHTML = `
