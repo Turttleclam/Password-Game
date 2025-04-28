@@ -23,19 +23,20 @@ const displayData = (data) => {
     });
 };
 
-const searchFetch = fetch(`http://localhost:3000/search/${userSearch.value}`)
+const searchFetch = () => {fetch(`http://localhost:3000/search/${userSearch.value}`)
     .then((res) => res.json())
     .then((data) => {
         array = data;
         displaySearch(array);
     })
     .catch((err) => {
+        console.log(err);
         searchDisplay.innerHTML = `
         <tr>
-        <td>Error returning search results</td>
+        <td>Waiting for search results</td>
         </tr>
         `;
-});
+})};
 
 
 const displaySearch = (data) => {
@@ -65,7 +66,7 @@ searchBtn.addEventListener("click", () => {
         `;
     });
 });
-searchBtn.addEventListener("keydown", (e) => {
+userSearch.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
         searchFetch();
     }
