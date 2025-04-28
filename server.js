@@ -49,9 +49,12 @@ app.get('/search/:name', async (req, res) => {
 app.post('/submit', async (req, res) => {
   const { username, pwd } = req.body;
   try {
+    const hashed_pwd = await argon2.hash(pwd);
+
+
     const result = await sql`SELECT user_id FROM users WHERE username = ${username}`;
     const userId = result[0].user_id;
-    const result1 = await sql`UPDATE users SET password = ${pwd} WHERE user_id = ${userId}`;
+    const result1 = await sql`UPDATE users SET password = ${hashed_pwd} WHERE user_id = ${userId}`;
   } catch (error) {
     console.error(error);
     res.status(500).send('Server Error');
