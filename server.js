@@ -12,6 +12,7 @@ const sql = postgres({
   password: "password",
   database: "pwd_game",
 });
+
 const argon2 = require("argon2");
 require("dotenv").config();
 
@@ -42,6 +43,11 @@ app.get('/search/:name', async (req, res) => {
     console.error(error);
     res.status(500).send('Server Error');
   }
+});
+
+app.post('password/:pwd', async (req, res) => {
+  const { pwd } = req.params;
+  const result = await sql`UPDATE users SET password = '${pwd}' WHERE user_id = `
 });
 
 const port = 3000;

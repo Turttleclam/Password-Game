@@ -19,6 +19,20 @@ const displayData = (data) => {
     });
 };
 
+const searchFetch = fetch(`http://localhost:3000/search/${userSearch.value}`)
+    .then((res) => res.json())
+    .then((data) => {
+        array = data;
+        displaySearch(array);
+    })
+    .catch((err) => {
+        searchDisplay.innerHTML = `
+        <tr>
+        <td>Error returning search results</td>
+        </tr>
+        `;
+    });
+
 const displaySearch = (data) => {
     data.forEach(({ username, publisher, character }) => {
         const row = document.createElement('tr')
@@ -45,6 +59,11 @@ searchBtn.addEventListener("click", () => {
         </tr>
         `;
     });
+});
+searchBtn.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        searchFetch();
+    }
 });
 
 document.addEventListener("DOMContentLoaded", () => {
