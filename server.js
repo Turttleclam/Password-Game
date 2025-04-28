@@ -19,6 +19,7 @@ require("dotenv").config();
 app.use('/style', express.static(path.join(__dirname + `/style`)));
 
 app.use(express.static(path.join(__dirname + '/public')));
+app.use(express.json());
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "/public/index.html"))
@@ -45,9 +46,16 @@ app.get('/search/:name', async (req, res) => {
   }
 });
 
-app.post('password/:pwd', async (req, res) => {
-  const { pwd } = req.params;
-  const result = await sql`UPDATE users SET password = '${pwd}' WHERE user_id = `
+app.post('/submit', async (req, res) => {
+  const { username, pwd } = req.body;
+  console.log(req.body);
+  try {
+  const result = await sql`UPDATE users SET password = ${pwd} WHERE username = ${username}`;
+  res.json(result);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Server Error');
+  }
 });
 
 const port = 3000;
