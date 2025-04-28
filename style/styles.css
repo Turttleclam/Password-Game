@@ -40,6 +40,7 @@ div {
 
 .userInput {
     display: flex;
+    justify-content: center;
     width: 100%;
     text-align: center;
 }
@@ -59,6 +60,14 @@ div {
     width: 50%;
     text-align: center;
     padding: 2rem;
+}
+
+.addNewUser {
+    display: none;
+}
+
+#char, #fav_comic {
+    display: none;
 }
 
 .button {

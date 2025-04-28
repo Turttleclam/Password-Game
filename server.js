@@ -48,13 +48,28 @@ app.get('/search/:name', async (req, res) => {
 
 app.post('/submit', async (req, res) => {
   const { username, pwd } = req.body;
-  console.log(req.body);
   try {
-  const result = await sql`UPDATE users SET password = ${pwd} WHERE username = ${username}`;
-  res.json(result);
+    const result = await sql`SELECT user_id FROM users WHERE username = ${username}`;
+    const userId = result[0].user_id;
+    const result1 = await sql`UPDATE users SET password = ${pwd} WHERE user_id = ${userId}`;
   } catch (error) {
     console.error(error);
     res.status(500).send('Server Error');
+  }
+});
+
+app.post('/create', async (req, res) => {
+  const { username, pwd, fav_comic, char } = req.body;
+  console.log(username);
+  try {
+  const result = await sql`INSERT INTO users(username, password) VALUES(${username}, ${pwd}) RETURNING user_id`;
+  const newId = result[0].user_id;
+  const result1 = await sql`INSERT INTO fav_comic(user_id, publisher, character) VALUES(${newId}, ${fav_comic}, ${char})`;
+  console.log([result1]);
+  // result & result1 are objects, res.json can only send one object/array at a time
+  res.json([result, result1]);
+  } catch (error) {
+    res.status(500).send('Server Eror');
   }
 });
 
